@@ -28,3 +28,11 @@
   content: "";
   padding: 0;
 }
+
+#map{
+  height:500px;
+}
+
+.leaflet-marker-icon{
+  -webkit-transition:8s linear;
+}
