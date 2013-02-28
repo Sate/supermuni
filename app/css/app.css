@@ -30,9 +30,80 @@
 }
 
 #map{
-  height:500px;
+  height:400px;
+  width: 89%;
+  float: left;
+  /*margin: auto;*/
 }
 
-.leaflet-marker-icon{
-  -webkit-transition:8s linear;
+.leaflet-container img{
+  -webkit-transition:7s linear;
+}
+
+*{
+  font-family: prox;
+}
+
+a{
+  text-decoration: none;
+}
+
+body{
+  margin: 4px;
+}
+
+html{
+  background: rgba(42, 56, 56, 0.46);
+  color: white;
+}
+
+input{
+  width: 75%;
+  height: 50px;
+  font-size: 30px;
+  /*padding: 10px;*/
+  border-radius: 0px;
+  float: left;
+  padding: 0px;
+}
+
+@font-face{
+  font-family: prox;
+  src: url('proximanova-light-webfont.woff');
+}
+
+.button{
+  font-size: 40px;
+  float: left;
+  width: 24%;
+  height: 50px;
+  /*padding: 10px;*/
+  border-radius: 0px;
+  background: #8ab63f;
+  cursor: pointer;
+  border: 1px solid #333;
+}
+
+.leaflet-popup-content-wrapper{
+  color: #333;
+  border-radius: 0px;
+  text-align: center;
+}
+
+.geozoom{
+  border-radius: 0px;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  height: 50px;
+  -webkit-appearance: none;
+  background: #f7f7f7;
+  font-size: 20px;
+}
+
+.thumb{
+  float: left;
+  max-width: 10%;
+  margin-top: 10%;
+  -webkit-transform: rotate(90deg);
 }

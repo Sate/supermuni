@@ -10,7 +10,6 @@ angular.module('myApp.services', []).
   factory('DataSource', ['$http',function($http){
        return {
            get: function(callback, route){
-            console.log(route)
                 $http.get(
                     'http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a=sf-muni&r='+route+'&t='+lastTime,
                     {transformResponse:function(data) {
@@ -18,7 +17,6 @@ angular.module('myApp.services', []).
                       // it to the success function below
                         var json = xml2json.parser( data );
                         lastTime = json.body.lasttime.time;
-                        console.log(json.body)
                         return json;
                         },
                   }
@@ -30,4 +28,4 @@ angular.module('myApp.services', []).
                 })
            }
        }
-    }]);;
+    }]);

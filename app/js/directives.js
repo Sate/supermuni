@@ -10,7 +10,6 @@ angular.module('myApp.directives', []).
     };
   }]).
   directive('sfMap', function(){
-    alert()
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -39,14 +38,17 @@ angular.module('myApp.directives', []).
       },
       template: '<div class="map"></div>',
       link: function (scope, element, attrs, ctrl) {
-                var $el = element[0];
-            map = new L.Map($el);
+        var lat = 37.7750;
+        var lng = -122.4183;
+        var zoom = 12;
+        var $el = element[0];
+        map = new L.Map($el);
 
           L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 20 }).addTo(map);
 
                 // Default center of the map
-                var point = new L.LatLng(37.7750, -122.4183);
-                map.setView(point, 14);
+                var point = new L.LatLng(lat, lng);
+                map.setView(point, zoom);
 
                 scope.$watch("center", function(center) {
                     if (center === undefined) return;

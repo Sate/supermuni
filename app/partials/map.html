@@ -1,4 +1,5 @@
-<input ng-model="input"/><button ng-click="go()">GO</button>
+<input blur="blur" ui-keydown="{'enter': 'go()'}" ng-model="input" placeholder="Muni Route" /><span class="button" ng-click="go()">Go</span>
+<button ng-click="getLocation()" class="geozoom">Zoom to your location</button>
 
 <div id="map" leaflet>
 
@@ -6,5 +7,6 @@
 
 
 </div>
+<div class="thumb">Thumb Space</div>
 
 <div>{{dataSet}}</div>
