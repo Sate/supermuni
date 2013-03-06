@@ -4,11 +4,17 @@
 
 
 function mapController($scope, DataSource) {
+  $scope.list = muniList.body.route;
+  $scope.input = {val: ''};
+  $scope.$watch('input.select', function (val){
+    $scope.input.val = val;
+    $scope.go();
+  });
   $scope.getLocation = function(){
     if (navigator.geolocation){
       navigator.geolocation.getCurrentPosition(showPosition);
       }
-    else{x.innerHTML="Geolocation is not supported by this browser.";}
+    else{alert("Geolocation is not supported by this browser.");}
   };
   function showPosition(position){
     var lat = position.coords.latitude;
@@ -23,10 +29,11 @@ function mapController($scope, DataSource) {
     fillOpacity: 0.5
     }).addTo(map);
   };
-  $scope.go = function(){
+  $scope.go = function(val){
     $('input').blur();
     $scope.vehicles = {};
-    $scope.route = $scope.input.toUpperCase();
+    $scope.input.select = $scope.input.val && $scope.input.val.toString().toUpperCase(); 
+    $scope.route = $scope.input.val;
     for (var i in map._layers){
       if (map._layers[i]._tiles){ continue}
       map.removeLayer(map._layers[i])
@@ -34,7 +41,6 @@ function mapController($scope, DataSource) {
     lastTime = 0;
     DataSource.get(setData, $scope.route);
   };
-  $scope.tree = {stuff:'yup'};
   $scope.vehicles = {};
   var setData = function(data) {
     if (Array.isArray( data['body']['vehicle']) ){

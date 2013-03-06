@@ -1,5 +1,8 @@
-<input blur="blur" ui-keydown="{'enter': 'go()'}" ng-model="input" placeholder="Muni Route" /><span class="button" ng-click="go()">Go</span>
-<button ng-click="getLocation()" class="geozoom">Zoom to your location</button>
+<select ng-model="input.select" ng-options="item.tag as item.title for item in list"><option value=''>Select route here</option></select>
+<input ui-keydown="{'enter': 'go()'}" placeholder="Or type it and click " ng-model="input.val"/>
+<span class="button" ng-click="go()">Go</span>
+<button ng-click="getLocation()" class="geozoom">Zoom</button>
+
 
 <div id="map" leaflet>
 

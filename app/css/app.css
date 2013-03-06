@@ -59,8 +59,8 @@ html{
 
 input{
   width: 75%;
-  height: 50px;
-  font-size: 30px;
+  height: 40px;
+  font-size: 25px;
   /*padding: 10px;*/
   border-radius: 0px;
   float: left;
@@ -76,7 +76,8 @@ input{
   font-size: 40px;
   float: left;
   width: 24%;
-  height: 50px;
+  height: 40px;
+  /*box-shadow: 1px 1px 1px rgba(0,0,0,0.3);*/
   /*padding: 10px;*/
   border-radius: 0px;
   background: #8ab63f;
@@ -91,14 +92,17 @@ input{
 }
 
 .geozoom{
+  color: #f7f7f7;
   border-radius: 0px;
   width: 100%;
   margin: 0px;
   padding: 0px;
-  height: 50px;
+  height: 40px;
   -webkit-appearance: none;
-  background: #f7f7f7;
+  background: -webkit-linear-gradient(top, rgba(247,100,100,0.5) 0%,rgba(247,0,0,0.25) 100%);
   font-size: 20px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  margin-bottom: 5px;
 }
 
 .thumb{
@@ -106,4 +110,22 @@ input{
   max-width: 10%;
   margin-top: 10%;
   -webkit-transform: rotate(90deg);
+}
+
+@media all and (min-width: 700px) {
+  .button{
+    box-shadow: 3px 3px 1px rgba(51, 51, 51, 0.75);
+  }
+}
+
+select{
+  background: white;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  -webkit-appearance: none;
+  border-radius: 0px;
+  width: 100%;
+  height: 40px;
+  font-family: prox;
+  text-align: center;
+  font-size: 20px;
 }
