@@ -4,6 +4,7 @@
 
 
 function mapController($scope, DataSource) {
+  $scope.lastTime = 0;
   $scope.list = muniList.body.route;
   $scope.input = {val: ''};
   $scope.$watch('input.select', function (val){
@@ -38,11 +39,11 @@ function mapController($scope, DataSource) {
       if (map._layers[i]._tiles){ continue}
       map.removeLayer(map._layers[i])
     }
-    lastTime = 0;
-    DataSource.get(setData, $scope.route);
+    DataSource.get(setData, $scope.route, $scope.lastTime);
   };
   $scope.vehicles = {};
   var setData = function(data) {
+    $scope.lastTime = data.body.lasttime.time;
     if (Array.isArray( data['body']['vehicle']) ){
       var vehicles = data.body.vehicle;
       vehicles.forEach(function(v){
@@ -71,7 +72,7 @@ function mapController($scope, DataSource) {
          
   $scope.interval = setInterval(function(){
     $scope.$apply(function() {
-      DataSource.get(setData, $scope.route)
+      DataSource.get(setData, $scope.route, $scope.lastTime)
 
     });
   }, 3000);

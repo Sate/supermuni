@@ -1,4 +1,4 @@
-lastTime = 0;
+'use strict';
 /* Services */
 
 
@@ -9,17 +9,17 @@ angular.module('myApp.services', []).
   value('test', 'supthen').
   factory('DataSource', ['$http',function($http){
        return {
-           get: function(callback, route){
+           get: function(callback, route, lastTime){
                 $http.get(
-                    'http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a=sf-muni&r='+route+'&t='+lastTime,
+                  'http://webservices.nextbus.com/service/publicXMLFeed?command=vehicleLocations&a=sf-muni&r='+route+'&t='+lastTime || 0,
                     {transformResponse:function(data) {
                       // convert the data to JSON and provide
                       // it to the success function below
                         var json = xml2json.parser( data );
-                        lastTime = json.body.lasttime.time;
+                        // lastTime = json.body.lasttime.time;
                         return json;
                         },
-                  }
+                    }
                 ).
                 success(function(data, status) {
                     // send the converted data back
